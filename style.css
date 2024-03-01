@@ -46,20 +46,37 @@ input:focus {
     border-radius: 20px;
     box-shadow: 0 25px 40px rgba(219, 211, 138, 0.05), 0 25px 140px rgba(254, 254, 254, 0.1);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 3rem;
     max-width: 800px;
-    align-items: center;
     justify-content: center; 
+    align-items: center;
 }
+
+
 
 .avatar {
     border: 10px solid #2a7241;
     border-radius: 50%;
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
+    align-items: center;
+    transition: box-shadow 0.5s ease; /* Add a smooth transition effect */
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.8);
 }
 
+.avatar:hover {
+    box-shadow: 0 0 50px rgba(108, 182, 209, 0.8); /* White neon shadow on hover */
+}
+
+.date-avatar p{
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    margin-top: 15%;
+    /* font-family: 'Courier New', monospace;  */
+    font-family: "Madimi One", sans-serif;
+}
 .user-info {
     color: #eee;
     margin-left: 2rem;
@@ -68,12 +85,18 @@ input:focus {
 }
 
 .user-info h2 {
-    margin-top: 0;
+    margin-bottom: 5%;
     /* font-family: 'Courier New', monospace; */
     font-family: "Pacifico", cursive;
+    font-size: 3rem;
     align-items: center;
     justify-content: center; 
-    margin-left: 14rem;
+    margin-left: rem;
+}
+
+.user-info p {
+    font-family: "Madimi One", sans-serif;
+    font-weight: 00;
 }
 
 .user-info ul {
@@ -105,4 +128,47 @@ input:focus {
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
     text-decoration: none;
+    transition: box-shadow 0.5s ; 
+
+}
+
+.repo:hover {
+    box-shadow: 0 0 15px #78e491; 
+}
+
+
+@media screen and (max-width: 420px) {
+    .card {
+        width: 450px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .avatar {
+        margin-bottom: 1rem;
+    }
+
+    .date-avatar {
+        align-items: center;
+    }
+
+    .date-avatar p {
+        margin-top: 5%; /* Adjust the margin as needed */
+        font-size: 1.5rem; /* Adjust the font size as needed */
+    }
+
+    .user-info {
+        text-align: center;
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+
+    .user-info h2 {
+        font-size: 2rem; /* Adjust the font size as needed */
+        margin-bottom: 0.5rem;
+    }
+
+    .user-info p {
+        font-size: 1rem; /* Adjust the font size as needed */
+    }
 }

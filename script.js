@@ -1,20 +1,25 @@
 const APIURL = "https://api.github.com/users/";
 const main = document.querySelector("#main");
 const searchBox = document.querySelector("#search")
+
 //Async funtion(arrow funtion)
 const getUser = async(username) => {
     const responce = await fetch(APIURL + username);  // ham yaha wait kare ge jab responce vaps aye ga API se esliye wait ka use kar rahe hai
     const data = await responce.json();//now ab hame responce ka data nikalna 
     console.log(data);
+    const createdAt = new Date(data.created_at);
+    const formattedDate = createdAt.toISOString().split('T')[0];
     const card =`
-    
+
     <div class="card">
-        <div>
+        <div class = "date-avatar">
             <img class="avatar" src="${data.avatar_url}" alt="Florin Pop">
+            <p>Joined At ${formattedDate}</p>
         </div>
         <div class="user-info">
             <h2>${data.name}</h2>
-            <p>${data.bio}</p>
+            ${data.bio ? `<p>${data.bio}</p>` : ' NOt FOUND'}
+
 
             <ul class="info">
                 <li>${data.followers}<strong>Followers</strong></li>
