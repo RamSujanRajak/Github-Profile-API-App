@@ -7,8 +7,11 @@ const getUser = async(username) => {
     const responce = await fetch(APIURL + username);  // ham yaha wait kare ge jab responce vaps aye ga API se esliye wait ka use kar rahe hai
     const data = await responce.json();//now ab hame responce ka data nikalna 
     console.log(data);
+   
+    //for joining date code 
     const createdAt = new Date(data.created_at);
     const formattedDate = createdAt.toISOString().split('T')[0];
+
     const card =`
 
     <div class="card">
@@ -45,8 +48,9 @@ const getrepos = async(username) => {
     const repos = document.querySelector("#repos");
     const responce =  await fetch(APIURL + username + "/repos");
     const data = await responce.json();
-    data.forEach(
-         (item) => {
+
+    data.forEach( (item) => {
+
             console.log(item)
             const elem = document.createElement("a");
             elem.classList.add("repo")
@@ -54,8 +58,10 @@ const getrepos = async(username) => {
             elem.innerText = item.name
             elem.target = "_block"
             repos.appendChild(elem)
+
     });
-    console.log(data);
+    // console.log(data);
+
 }
 
 const formSubmit = () => {
